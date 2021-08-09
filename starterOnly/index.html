@@ -56,11 +56,12 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+            <span class="messageErreur"></span>
             <form
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validate(event);"
             >
               <div
                 class="formData">
@@ -203,7 +204,7 @@
                 class="btn-submit"
                 type="submit"
                 class="button"
-                value="C'est parti"
+                value="validate"
               />
             </form>
           </div>
@@ -215,6 +216,7 @@
         Copyright 2014 - 2020, GameOn Inc.
       </p>
     </footer>
-    <script src="modal.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/modalInputLenght.js"></script>
   </body>
 </html>
