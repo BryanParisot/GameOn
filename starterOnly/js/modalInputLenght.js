@@ -1,3 +1,4 @@
+// Inputs 
 const prenom = document.getElementById("first");
 const nom = document.getElementById("last");
 const email = document.getElementById("email");
@@ -19,7 +20,7 @@ function validationPrenom() {
   if (prenom.value.trim().length <= 2 || prenom.value == "") {
     erreurMessage.style.display = "block";
     erreurMessage.innerText = "Le prenom doit faire plus de 2 caractères";
-    console.log("erreur prenom");
+    console.log("Le prenom doit faire plus de 2 caractères");
     return false;
   }
   erreurMessage.style.display = "none";
@@ -32,7 +33,7 @@ function validationNom() {
   if (nom.value.length <= 2 || nom.value == "") {
     erreurMessage.style.display = "block";
     erreurMessage.innerText = "Le nom doit faire plus de 2 caractères";
-    console.log("erreur nom");
+    console.log("Le nom doit faire plus de 2 caractères");
     return false;
   }
   return true;
@@ -46,7 +47,7 @@ function validationEmail() {
   if (regex.test(email.value) == false || email.value == "") {
     erreurMessage.style.display = "block";
     erreurMessage.innerText = "L'adresse email n'est pas correct";
-    console.log("erreur email");
+    console.log("L'adresse email n'est pas correct");
     return false;
   }
   return true;
@@ -70,8 +71,8 @@ function validationNumberParticipation() {
   if (nombre.value > 99 || nombre.value === "") {
     erreurMessage.style.display = "block";
     erreurMessage.innerText =
-      "Voys devez entrer un nombre et qu'il soit inférieur à 99";
-    console.log("vous devez entrer un nombre");
+      "Vous devez entrer un nombre et qu'il soit inférieur à 99";
+    console.log("Vous devez entrer un nombre et qu'il soit inférieur à 99");
     return false;
   }
   return true;
@@ -94,6 +95,7 @@ function validationRadio() {
     checklocation5 === false &&
     checklocation6 === false
   ) {
+    console.log('Vous devez choisir quelles villes')
     erreurMessage.style.display = "block";
     erreurMessage.innerText = "Vous devez choisir quelles villes";
     return false;
@@ -113,7 +115,7 @@ function validationCheck() {
   if (condition.checked === false) {
     erreurMessage.style.display = "block";
     erreurMessage.innerText = "Vous devez accepter les conditions générales";
-    console.log("formulaire n'est pas accpté");
+    console.log("Vous devez accepter les conditions générales");
 
     return false;
   }
@@ -138,7 +140,7 @@ function allValidationsPassed() {
 function validate(event) {
   if (allValidationsPassed()) {
     alert('Nous avons bien pris en compte vos informations')
-    console.log("ggggg");
+    console.log("gg");
     return true
   }
   event.preventDefault();
