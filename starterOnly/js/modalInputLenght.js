@@ -148,11 +148,13 @@ function allValidationsPassed() {
 
 //validation du formulaire une fois que tout est à true
 function validate(event) {
+  const x = document.getElementById('x')
+  const a = document.getElementById('a')
   if (allValidationsPassed()) {
-    alert("Nous avons bien pris en compte vos informations");
-    console.log("gg");
+    x.style.display ="none"
+    a.style.display = "block"
+    event.preventDefault();
     return true;
   }
-  event.preventDefault();
   return false;
 }
