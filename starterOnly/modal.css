@@ -535,3 +535,31 @@ footer {
   font-size: 1rem;
   display: none;
 }
+
+.erreur{
+  font-size: .87rem;
+  color: red;
+  margin-left: 3px;
+}
+#errPrenom{
+  display: none;
+
+}
+#errNom{
+  display: none;
+}
+#errEmail{
+  display: none;
+}
+#errDate{
+  display: none;
+}
+#errTournoi{
+  display: none;
+}
+#errLoc{
+  display: none;
+}
+#errCheck{
+  display: none;
+}

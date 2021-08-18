@@ -1,11 +1,10 @@
-// Inputs 
+// Inputs
 const prenom = document.getElementById("first");
 const nom = document.getElementById("last");
 const email = document.getElementById("email");
 const dateNaissance = document.getElementById("birthdate");
 const nombre = document.getElementById("quantity");
 const condition = document.getElementById("checkbox1");
-const erreurMessage = document.querySelector(".messageErreur");
 
 // les types radios
 const location1 = document.getElementById("location1");
@@ -17,69 +16,77 @@ const location6 = document.getElementById("location6");
 
 // Validation du prenom
 function validationPrenom() {
+  const errPrenom = document.getElementById("errPrenom");
   if (prenom.value.trim().length <= 2 || prenom.value == "") {
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText = "Le prenom doit faire plus de 2 caractères";
+    errPrenom.style.display = "block";
+    errPrenom.innerText = "Le prenom doit faire plus de 2 caractères";
     console.log("Le prenom doit faire plus de 2 caractères");
     return false;
   }
-  erreurMessage.style.display = "none";
+  errPrenom.style.display = "none";
 
   return true;
 }
 
 // Validation du nom
 function validationNom() {
+  const errNom = document.getElementById("errNom");
   if (nom.value.length <= 2 || nom.value == "") {
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText = "Le nom doit faire plus de 2 caractères";
+    errNom.style.display = "block";
+    errNom.innerText = "Le nom doit faire plus de 2 caractères";
     console.log("Le nom doit faire plus de 2 caractères");
     return false;
   }
+  errNom.style.display = "none";
   return true;
 }
 
 //validation de l'email
 function validationEmail() {
+  const errEmail = document.getElementById("errEmail");
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
   if (regex.test(email.value) == false || email.value == "") {
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText = "L'adresse email n'est pas correct";
+    errEmail.style.display = "block";
+    errEmail.innerText = "L'adresse email n'est pas correct";
     console.log("L'adresse email n'est pas correct");
     return false;
   }
+  errEmail.style.display = "none";
   return true;
 }
 
 //validation de la date
 function validationDate() {
+  const errdate = document.getElementById("errdate");
   // dateNaissance.value == ''  ? true :  console.log('Une erreur de date est survenue')
   if (dateNaissance.value == "") {
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText = "La date de naissance n'est pas entrée";
+    errdate.style.display = "block";
+    errdate.innerText = "La date de naissance n'est pas entrée";
     console.log("Une erreur de date est survenue");
     return false;
   }
-  console.log(dateNaissance.value);
+  errdate.style.display = "none";
   return true;
 }
 
 //validation du nombre de participation
 function validationNumberParticipation() {
+  const errTournoi = document.getElementById("errTournoi");
   if (nombre.value > 99 || nombre.value === "") {
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText =
+    errTournoi.style.display = "block";
+    errTournoi.innerText =
       "Vous devez entrer un nombre et qu'il soit inférieur à 99";
     console.log("Vous devez entrer un nombre et qu'il soit inférieur à 99");
     return false;
   }
+  errTournoi.style.display = "none";
   return true;
 }
 
 //validation du choix de la ville
 function validationRadio() {
+  const errLoc = document.getElementById("errLoc");
   const checklocation1 = location1.checked;
   const checklocation2 = location2.checked;
   const checklocation3 = location3.checked;
@@ -95,9 +102,9 @@ function validationRadio() {
     checklocation5 === false &&
     checklocation6 === false
   ) {
-    console.log('Vous devez choisir quelles villes')
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText = "Vous devez choisir quelles villes";
+    console.log("Vous devez choisir quelles villes");
+    errLoc.style.display = "block";
+    errLoc.innerText = "Vous devez choisir quelles villes";
     return false;
   } else {
     checklocation1 === true ||
@@ -107,19 +114,22 @@ function validationRadio() {
       checklocation5 === true ||
       checklocation6 === true;
   }
+  errLoc.style.display = "none";
+
   return true;
 }
 
 //validation des conditions generales
 function validationCheck() {
+  const errCheck = document.getElementById("errCheck");
   if (condition.checked === false) {
-    erreurMessage.style.display = "block";
-    erreurMessage.innerText = "Vous devez accepter les conditions générales";
+    errCheck.style.display = "block";
+    errCheck.innerText = "Vous devez accepter les conditions générales";
     console.log("Vous devez accepter les conditions générales");
 
     return false;
   }
-
+  errCheck.style.display = "none";
   return true;
 }
 
@@ -139,9 +149,9 @@ function allValidationsPassed() {
 //validation du formulaire une fois que tout est à true
 function validate(event) {
   if (allValidationsPassed()) {
-    alert('Nous avons bien pris en compte vos informations')
+    alert("Nous avons bien pris en compte vos informations");
     console.log("gg");
-    return true
+    return true;
   }
   event.preventDefault();
   return false;
