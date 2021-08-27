@@ -59,11 +59,13 @@ function validationEmail() {
 //validation de la date
 function validationDate() {
   const errdate = document.getElementById("errdate");
-  // dateNaissance.value == ''  ? true :  console.log('Une erreur de date est survenue')
-  if (dateNaissance.value == "") {
+  let x = new Date(document.getElementById("birthdate").value)
+  let date = new Date();
+  date.setFullYear(date.getFullYear() - 18);
+
+  if (dateNaissance.value == "" || x > date) {
     errdate.style.display = "block";
-    errdate.innerText = "La date de naissance n'est pas entrée";
-    console.log("Une erreur de date est survenue");
+    errdate.innerText = "vous devez avoir 18ans minimum pour pouvoir accéder au marathon";
     return false;
   }
   errdate.style.display = "none";
@@ -148,13 +150,20 @@ function allValidationsPassed() {
 
 //validation du formulaire une fois que tout est à true
 function validate(event) {
-  const x = document.getElementById('x')
-  const a = document.getElementById('a')
+  const x = document.getElementById("x");
+  const a = document.getElementById("a");
   if (allValidationsPassed()) {
-    x.style.display ="none"
-    a.style.display = "block"
+    x.style.display = "none";
+    a.style.display = "block";
     event.preventDefault();
     return true;
   }
   return false;
 }
+
+function test() {
+  let date = new Date();
+
+  console.log(date.toLocaleDateString("fr-FR"));
+}
+test();
