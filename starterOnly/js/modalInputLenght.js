@@ -56,16 +56,17 @@ function validationEmail() {
   return true;
 }
 
-//validation de la date
+//validation de la date à partir de 18 ans
 function validationDate() {
   const errdate = document.getElementById("errdate");
-  let x = new Date(document.getElementById("birthdate").value)
+  let dateChoice = new Date(document.getElementById("birthdate").value);
   let date = new Date();
   date.setFullYear(date.getFullYear() - 18);
 
-  if (dateNaissance.value == "" || x > date) {
+  if (dateNaissance.value == "" || dateChoice > date) {
     errdate.style.display = "block";
-    errdate.innerText = "vous devez avoir 18ans minimum pour pouvoir accéder au marathon";
+    errdate.innerText =
+      "vous devez avoir 18ans minimum pour pouvoir accéder au marathon";
     return false;
   }
   errdate.style.display = "none";
@@ -160,10 +161,3 @@ function validate(event) {
   }
   return false;
 }
-
-function test() {
-  let date = new Date();
-
-  console.log(date.toLocaleDateString("fr-FR"));
-}
-test();
