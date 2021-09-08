@@ -18,9 +18,14 @@ const location6 = document.getElementById("location6");
 function validationPrenom() {
   const errPrenom = document.getElementById("errPrenom");
   const regex1 = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
-    if (prenom.value.trim().length < 1 || prenom.value == "" || !prenom.value.match(regex1)) {
+  if (
+    prenom.value.trim().length < 1 ||
+    prenom.value == "" ||
+    !prenom.value.match(regex1)
+  ) {
     errPrenom.style.display = "block";
-    errPrenom.innerText = "Le prenom doit faire minimum 2 caractére pas spéciale";
+    errPrenom.innerText =
+      "Le prenom doit faire minimum 2 caractére pas spéciale";
     console.log("Le prenom doit faire plus de 2 caractères");
     return false;
   }
@@ -34,7 +39,7 @@ function validationNom() {
   const errNom = document.getElementById("errNom");
   const regex2 = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
-  if (nom.value.length < 1 || nom.value == "" || !nom.value.match(regex2)  ) {
+  if (nom.value.length < 1 || nom.value == "" || !nom.value.match(regex2)) {
     errNom.style.display = "block";
     errNom.innerText = "Le nom doit faire minimum 2 caractére pas spéciale";
     console.log("Le nom doit faire plus de 2 caractères");
@@ -108,7 +113,6 @@ function validationRadio() {
     checklocation5 === false &&
     checklocation6 === false
   ) {
-    console.log("Vous devez choisir quelles villes");
     errLoc.style.display = "block";
     errLoc.innerText = "Vous devez choisir quelles villes";
     return false;
@@ -147,18 +151,26 @@ function allValidationsPassed() {
     validationEmail() &&
     validationDate() &&
     validationNumberParticipation() &&
-    validationCheck() &&
-    validationRadio()
+    validationRadio() &&
+    validationCheck()
   );
 }
 
+function clearForm() {
+  const form = document.querySelector('form')
+ 
+  console.log(form.reset())
+
+}
+
+clearForm()
 //validation du formulaire une fois que tout est à true
 function validate(event) {
-  const x = document.getElementById("x");
-  const a = document.getElementById("a");
+  const formulaire = document.getElementById("x");
+  const secondModal = document.getElementById("a");
   if (allValidationsPassed()) {
-    x.style.display = "none";
-    a.style.display = "block";
+    formulaire.style.display = "none";
+    secondModal.style.display = "block";
     event.preventDefault();
     return true;
   }
