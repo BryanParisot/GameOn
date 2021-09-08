@@ -157,14 +157,11 @@ function allValidationsPassed() {
 }
 
 function clearForm() {
-  const form = document.querySelector('form')
- 
-  console.log(form.reset())
+  const form = document.getElementById('x')
+  form.reset();
 
 }
-
-clearForm()
-//validation du formulaire une fois que tout est à true
+// validation du formulaire une fois que tout est à true
 function validate(event) {
   const formulaire = document.getElementById("x");
   const secondModal = document.getElementById("a");
@@ -172,6 +169,7 @@ function validate(event) {
     formulaire.style.display = "none";
     secondModal.style.display = "block";
     event.preventDefault();
+    clearForm()
     return true;
   }
   return false;
