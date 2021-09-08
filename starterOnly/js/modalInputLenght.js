@@ -17,9 +17,10 @@ const location6 = document.getElementById("location6");
 // Validation du prenom
 function validationPrenom() {
   const errPrenom = document.getElementById("errPrenom");
-  if (prenom.value.trim().length <= 2 || prenom.value == "") {
+  const regex1 = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+    if (prenom.value.trim().length < 1 || prenom.value == "" || !prenom.value.match(regex1)) {
     errPrenom.style.display = "block";
-    errPrenom.innerText = "Le prenom doit faire plus de 2 caractères";
+    errPrenom.innerText = "Le prenom doit faire minimum 2 caractére pas spéciale";
     console.log("Le prenom doit faire plus de 2 caractères");
     return false;
   }
@@ -31,9 +32,11 @@ function validationPrenom() {
 // Validation du nom
 function validationNom() {
   const errNom = document.getElementById("errNom");
-  if (nom.value.length <= 2 || nom.value == "") {
+  const regex2 = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+
+  if (nom.value.length < 1 || nom.value == "" || !nom.value.match(regex2)  ) {
     errNom.style.display = "block";
-    errNom.innerText = "Le nom doit faire plus de 2 caractères";
+    errNom.innerText = "Le nom doit faire minimum 2 caractére pas spéciale";
     console.log("Le nom doit faire plus de 2 caractères");
     return false;
   }
