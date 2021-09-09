@@ -56,7 +56,7 @@
       <div class="bground">
         <div class="content">
           <!-- fermer la modal -->
-          <span class="close"></span>
+          <span id="iconCloseModalId" class="close"></span>
           <div class="modal-body">
             <!-- message d'erreur -->
             <span class="messageErreur"></span>
@@ -65,7 +65,7 @@
               action="index.html"
               method="get"
               onsubmit="return validate(event);"
-              id="x"
+              id="formulaire"
             >
               <div
                 class="formData">
@@ -220,9 +220,9 @@
                 value="validate"
               />
             </form>
-            <div id="a" style="display: none;">
+            <div id="secondModal" style="display: none;">
             <h2 id="titleResponse">Thank you for submitting your registration details</h2>
-            <input id="aaa" class="btn-submit2" type="button" value="close"></div>
+            <input id="btnCloseSecondModal" class="btn-submit2" type="button" value="close"></div>
           </div>
         </div>
       </div>

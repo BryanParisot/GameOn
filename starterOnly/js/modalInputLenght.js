@@ -14,6 +14,12 @@ const location4 = document.getElementById("location4");
 const location5 = document.getElementById("location5");
 const location6 = document.getElementById("location6");
 
+//btn
+const formulaire = document.getElementById("formulaire");
+const secondModal = document.getElementById("secondModal");
+const closeIconModal = document.getElementById("iconCloseModalId");
+const closing = document.getElementById("btnCloseSecondModal");
+
 // Validation du prenom
 function validationPrenom() {
   const errPrenom = document.getElementById("errPrenom");
@@ -156,21 +162,29 @@ function allValidationsPassed() {
   );
 }
 
+//reset le formualaire
 function clearForm() {
-  const form = document.getElementById('x')
+  const form = document.getElementById("formulaire");
   form.reset();
-
 }
+
 // validation du formulaire une fois que tout est à true
 function validate(event) {
-  const formulaire = document.getElementById("x");
-  const secondModal = document.getElementById("a");
   if (allValidationsPassed()) {
     formulaire.style.display = "none";
     secondModal.style.display = "block";
     event.preventDefault();
-    clearForm()
+    clearForm();
     return true;
   }
   return false;
 }
+
+//disparition de la fenetre modal et apparition du formulaire
+function resetDisplayForms() {
+  secondModal.style.display = "none";
+  formulaire.style.display = "block";
+}
+
+closing.addEventListener("click", resetDisplayForms);
+closeIconModal.addEventListener("click", resetDisplayForms);
