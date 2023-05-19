@@ -8,7 +8,7 @@ Application web d'inscription
 
 Lien maquette : https://www.figma.com/file/B7NKBDvSI18uoMLJgpnh48/UI-Design-GameOn-FR?type=design&node-id=106-630
 
-## Mision 
+## Mission 
 
 Travailler sur un repo GitHub forké 
 
